@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "DisplayViewResult";
+    Layout = null;
+}
+
+<h2>Action Result Test</h2>
+
+<ul>
+    <li>@Html.ActionLink("ContentResult Action", "DisplayContentResult", "ActionResultTest")</li>
+    <li>@Html.ActionLink("FileContentResult Action", "DisplayFileContentResult", "ActionResultTest")</li>
+    <li>@Html.ActionLink("EmptyResult Action", "DisplayEmptyResult", "ActionResultTest")</li>
+    <li>@Html.ActionLink("JsonResult Action", "DisplayJsonResult", "ActionResultTest")</li>
+    <li>
+        <button onclick="callJS()">JavaScriptResult Action</button>
+    </li>
+</ul>
+<!--
+    We cannot use actionlink for javascriptresult because javascript will not execute it will get get print. To execute we have to use jquery
+-->
+
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+<script>
+    function callJS() {
+        $.get("/ActionResultTest/DisplayJavaScriptResult");
+    }
+</script>
